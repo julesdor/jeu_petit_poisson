@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poisson Mémoire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="game">
+
+        <!-- Colonne gauche : bocal + cerveau + chrono -->
+        <section class="aquarium">
+            <h1>Poisson Mémoire</h1>
+
+            <div class="scene" id="scene">
+                <div class="bowl" id="bowl">
+                    <div class="glass">
+                        <div class="water">
+                            <div class="plant p1"></div>
+                            <div class="plant p2"></div>
+                            <div class="fish" id="fish">
+                                <svg viewBox="0 0 120 80" aria-label="Poisson">
+                                    <defs>
+                                        <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0" stop-color="#ffb347" />
+                                            <stop offset="1" stop-color="#ff6b4a" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M92 40 L118 14 Q112 40 118 66 Z" fill="#ff7a59" />
+                                    <ellipse cx="55" cy="40" rx="42" ry="28" fill="url(#fg)" />
+                                    <path d="M40 14 Q55 0 72 16 Q58 22 40 14Z" fill="#ff7a59" />
+                                    <path d="M50 44 Q66 40 62 58 Q48 56 50 44Z" fill="#ffd08a" />
+                                    <circle cx="28" cy="34" r="8" fill="#fff" />
+                                    <circle cx="26" cy="34" r="4" fill="#1b2a41" />
+                                    <path d="M14 50 Q20 54 26 50" stroke="#a63d2a" stroke-width="3" fill="none"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <span class="bubble b1"></span><span class="bubble b2"></span><span
+                                class="bubble b3"></span>
+                            <div class="sand"></div>
+                        </div>
+                        <div class="shine"></div>
+                    </div>
+                    <div class="surface"></div>
+                    <div class="rim"></div>
+                </div>
+                <div class="table-shadow"></div>
+            </div>
+
+            <div class="hud">
+                <div class="brain" id="brain" role="img" aria-label="Jauge de mémoire">
+                    <span class="brain-back">🧠</span>
+                    <span class="brain-fill" id="brainFill">🧠</span>
+                </div>
+                <div class="stats">
+                    <p class="stat-label">Mémoire</p>
+                    <p class="stat-big" id="brainPct">40%</p>
+                    <p class="stat-label">Avant le trou de mémoire</p>
+                    <div class="timer">
+                        <div class="timer-bar" id="timerBar"></div>
+                    </div>
+                    <p class="stat-time" id="timerText">50 s</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colonne droite : mahjong -->
+        <section class="board-wrap">
+            <div class="board" id="board" aria-label="Plateau de mahjong"></div>
+            <p class="hint">Associe deux tuiles identiques <strong>libres</strong> : rien dessus, et le côté gauche ou
+                droit dégagé. Les tuiles sombres sont bloquées. Chaque paire rend 10 % de mémoire.</p>
+        </section>
+
+    </main>
+
+    <!-- Écrans début / victoire / défaite -->
+    <div class="overlay show" id="overlay">
+        <div class="card" id="card">
+            <div class="stage" id="stage" aria-hidden="true"></div>
+            <h2 id="ovTitle">Glou… c'est quoi ton nom déjà ?</h2>
+            <p id="ovText">Tu es un petit poisson dans un bocal. Toutes les 50 secondes, tu oublies tout. Retrouve les
+                paires de tuiles pour remplir ton cerveau à 100 % et filer vers l'océan.</p>
+            <button id="startBtn">Jouer</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
